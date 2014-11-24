@@ -1,0 +1,3 @@
+[submodule "libraries/CVTEChartSDK"]
+	path = libraries/CVTEChartSDK
+	url = git@x.gz.cvte.cn:wangjia/cvtechartsdk.git

@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context="com.seecare.achart.ui.SupportCubicLineActivity">
+
+    <TextView
+        android:text="这是一个扩展的曲线图表"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:id="@+id/textView" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout_cubic_line"
+        android:layout_height="260dp"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:text="支持的功能：\n 1.设置曲线颜色，包括颜色渐变 \n 2.设置目标值，文字描述，目标线的样式"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

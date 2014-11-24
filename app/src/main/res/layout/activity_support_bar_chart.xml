@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+    <TextView
+        android:text="这是一个扩展的柱状图表"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:id="@+id/textView" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout_bar_chart"
+        android:layout_height="260dp"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:text="支持的功能：\n 1.柱状图的颜色分级
+        2.点击某个柱状图的效果
+        3.支持增加柱状图的阴影背景"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

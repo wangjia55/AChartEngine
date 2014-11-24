@@ -1,36 +1,61 @@
 package com.cvte.chart.demo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.cvte.chart.ui.SupportBarChartActivity;
+import com.cvte.chart.ui.SupportColorTapeLineActivity;
+import com.cvte.chart.ui.SupportCubicLineActivity;
+import com.cvte.chart.ui.SupportLineActivity;
 
 
 public class MyActivity extends Activity {
+    private final static int TYPE_CUBIC_LINE = 0;
+    private final static int TYPE_NORMAL_LINE = 1;
+    private final static int TYPE_NORMAL_BAR = 2;
+    private final static int TYPE_SUPPROT_COLOR_TAPE = 3;
+
+    private ListView mListViewChartDemo;
+    private String[] mStringArrayChartTypes = new String[]{"扩展的曲线图", "新样式的图表", "扩展的柱状图","支持颜色带的图表"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.my, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        setContentView(R.layout.activity_main);
+        mListViewChartDemo = (ListView) findViewById(R.id.listView_chart_demo);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mStringArrayChartTypes);
+        mListViewChartDemo.setAdapter(arrayAdapter);
+        mListViewChartDemo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case TYPE_CUBIC_LINE: {
+                        Intent intent = new Intent(MyActivity.this, SupportCubicLineActivity.class);
+                        startActivity(intent);
+                    }
+                    break;
+                    case TYPE_NORMAL_LINE: {
+                        Intent intent = new Intent(MyActivity.this, SupportLineActivity.class);
+                        startActivity(intent);
+                    }
+                    break;
+                    case TYPE_NORMAL_BAR: {
+                        Intent intent = new Intent(MyActivity.this, SupportBarChartActivity.class);
+                        startActivity(intent);
+                    }
+                    break;
+                    case TYPE_SUPPROT_COLOR_TAPE: {
+                        Intent intent = new Intent(MyActivity.this, SupportColorTapeLineActivity.class);
+                        startActivity(intent);
+                    }
+                    break;
+                }
+            }
+        });
     }
 }

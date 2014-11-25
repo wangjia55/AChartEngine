@@ -72,7 +72,6 @@ public class ColorLevleLineUtils extends  BaseSupportUtils{
 
         mXYRenderer.addSupportRenderer(lineSeriesRender);
 
-
         mXYMultipleSeriesDataSet.addSeries(sysSeries);
         //如果不许要颜色分级功能，则直接用原始的lineChart既可
         View view =  ChartFactory.getLineChartView(mContext, mXYMultipleSeriesDataSet, mXYRenderer);

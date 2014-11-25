@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
+
+    <TextView
+        android:text="这是一个普通的曲线图表,\n支持多个曲线同时进行颜色分级"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:id="@+id/textView" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:id="@+id/linearLayout_line"
+        android:layout_height="260dp"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:text="支持的功能：\n 1.点的颜色分级"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

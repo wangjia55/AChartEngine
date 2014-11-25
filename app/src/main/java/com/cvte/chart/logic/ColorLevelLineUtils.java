@@ -19,14 +19,14 @@ import java.util.ArrayList;
 /**
  * Created by wangjia on 28/06/14.
  */
-public class ColorLevleLineUtils extends  BaseSupportUtils{
+public class ColorLevelLineUtils extends  BaseSupportUtils{
 
-    private static final String TAG = ColorLevleLineUtils.class.getSimpleName();
+    private static final String TAG = ColorLevelLineUtils.class.getSimpleName();
     private final  static int COLOR_UP_TARGET = Color.parseColor("#FF843D");
     private final  static int COLOR_LOW_TARGET = Color.parseColor("#FFC23E");
     private final  static int COLOR_OTHER= Color.parseColor("#8FD85A");
 
-    public ColorLevleLineUtils(Context context) {
+    public ColorLevelLineUtils(Context context) {
         super(context);
         mContext = context;
     }

@@ -38,6 +38,10 @@
             android:name="com.cvte.chart.ui.ColorLevelLineActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name="com.cvte.chart.ui.ColorLevelMultiLineActivity"
+            android:screenOrientation="portrait">
+        </activity>
 
     </application>
 

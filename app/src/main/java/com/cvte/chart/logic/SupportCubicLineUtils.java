@@ -10,7 +10,7 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
-import org.achartengine.renderer.support.SupportLineSeriesRender;
+import org.achartengine.renderer.support.SupportSeriesRender;
 import org.achartengine.renderer.support.SupportXAlign;
 
 /**
@@ -50,24 +50,26 @@ public class SupportCubicLineUtils extends BaseSupportUtils {
         mXYMultipleSeriesDataSet = new XYMultipleSeriesDataset();
 
         //扩展的属性
-        SupportLineSeriesRender supportLineSeriesRender = new SupportLineSeriesRender();
+        SupportSeriesRender supportSeriesRender = new SupportSeriesRender();
         //设置曲线的颜色
-        supportLineSeriesRender.setLineColor(Color.parseColor("#851A9F7A"));
+        supportSeriesRender.setLineColor(Color.parseColor("#851A9F7A"));
         //设置曲线颜色为渐变色，默认的渐变色从上到下，3色渐变
-        supportLineSeriesRender.setShapeLineColor(new int[]{COLOR_START,COLOR_CENTER,COLOR_END});
-
+        supportSeriesRender.setShapeLineColor(new int[]{COLOR_START,COLOR_CENTER,COLOR_END});
 
         String[] hours = new String[20];
+
         double[] allDataSets = new double[]{
                 5,8,10,11,13,15,10,7,14,18,13,10, 5,8,10,11,15,10,7,14
         };
-        XYSeries sysSeries = new XYSeries("");
+        XYSeries sysSeries = new XYSeries("渐变曲线");
         for (int i = 0; i < allDataSets.length; i++) {
             sysSeries.add(i, allDataSets[i]);
             mXYRenderer.addXTextLabel(i, hours[i]);
         }
+        mXYRenderer.addSupportRenderer(supportSeriesRender);
+
         mXYMultipleSeriesDataSet.addSeries(sysSeries);
-        return ChartFactory.getSupportCubeLineChartView(mContext, mXYMultipleSeriesDataSet, mXYRenderer, supportLineSeriesRender, 0.2f);
+        return ChartFactory.getSupportCubeLineChartView(mContext, mXYMultipleSeriesDataSet, mXYRenderer, 0.2f);
     }
 
 }

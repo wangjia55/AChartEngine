@@ -12,7 +12,7 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 import org.achartengine.renderer.support.SupportColorLevel;
-import org.achartengine.renderer.support.SupportLineSeriesRender;
+import org.achartengine.renderer.support.SupportSeriesRender;
 
 import java.util.ArrayList;
 
@@ -39,7 +39,7 @@ public class SupportLineUtils extends  BaseSupportUtils{
     public View initLineGraphView() {
         mXYMultipleSeriesDataSet = new XYMultipleSeriesDataset();
 
-        SupportLineSeriesRender lineSeriesRender = new SupportLineSeriesRender();
+        final SupportSeriesRender lineSeriesRender = new SupportSeriesRender();
         lineSeriesRender.setClickPointColor(Color.parseColor("#8F77AA"));
         lineSeriesRender.setColorLevelValid(true);
         ArrayList<SupportColorLevel> list = new ArrayList<SupportColorLevel>();
@@ -69,15 +69,18 @@ public class SupportLineUtils extends  BaseSupportUtils{
             sysSeries.add(i, allDataSets[i]);
             mXYRenderer.addXTextLabel(i, hours[i]);
         }
+
+        mXYRenderer.addSupportRenderer(lineSeriesRender);
+
         mXYMultipleSeriesDataSet.addSeries(sysSeries);
         //如果不许要颜色分级功能，则直接用原始的lineChart既可
-        View view =  ChartFactory.getSupportLineChartView(mContext, mXYMultipleSeriesDataSet, mXYRenderer, lineSeriesRender);
+        View view =  ChartFactory.getSupportLineChartView(mContext, mXYMultipleSeriesDataSet, mXYRenderer);
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GraphicalView graphicalView = (GraphicalView) v;
-                graphicalView.handPointClickEvent("SupportLine");
+                graphicalView.handPointClickEvent(lineSeriesRender,"SupportLine");
             }
         });
         return  view;

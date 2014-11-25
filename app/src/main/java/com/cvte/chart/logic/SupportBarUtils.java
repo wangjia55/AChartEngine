@@ -11,9 +11,9 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
-import org.achartengine.renderer.support.SupportBarSeriesRender;
 import org.achartengine.renderer.support.SupportColorLevel;
 import org.achartengine.renderer.support.SupportSelectedChartType;
+import org.achartengine.renderer.support.SupportSeriesRender;
 import org.achartengine.renderer.support.SupportXAlign;
 import org.achartengine.renderer.support.SupportYAlign;
 
@@ -22,19 +22,19 @@ import java.util.ArrayList;
 /**
  * Created by wangjia on 30/06/14.
  */
-public class SupportBarUtils extends BaseSupportUtils{
-    private final  static int COLOR_UP_TARGET = Color.parseColor("#FF843D");
-    private final  static int COLOR_LOW_TARGET = Color.parseColor("#FFC23E");
-    private final  static int COLOR_OTHER= Color.parseColor("#8FD85A");
+public class SupportBarUtils extends BaseSupportUtils {
+    private final static int COLOR_UP_TARGET = Color.parseColor("#FF843D");
+    private final static int COLOR_LOW_TARGET = Color.parseColor("#FFC23E");
+    private final static int COLOR_OTHER = Color.parseColor("#8FD85A");
 
     public SupportBarUtils(Context context) {
         super(context);
     }
 
-    public View initBarChartView(){
+    public View initBarChartView() {
         mXYMultipleSeriesDataSet = new XYMultipleSeriesDataset();
 
-        SupportBarSeriesRender barSeriesRender =new SupportBarSeriesRender();
+        final SupportSeriesRender barSeriesRender = new SupportSeriesRender();
         //设置柱状图的背景阴影是否可见
         barSeriesRender.setShowBarChartShadow(true);
 //        barSeriesRender.setShowBarChartShadow(Color.DKGRAY);
@@ -47,8 +47,8 @@ public class SupportBarUtils extends BaseSupportUtils{
         ArrayList<SupportColorLevel> list = new ArrayList<SupportColorLevel>();
 
         //如果仅仅以target作为颜色分级，可以使用这个用法
-        SupportColorLevel supportColorLevel_a = new SupportColorLevel(0,mXYRenderer.getTargetValue(),COLOR_LOW_TARGET);
-        SupportColorLevel supportColorLevel_b = new SupportColorLevel(mXYRenderer.getTargetValue(),mXYRenderer.getTargetValue()*10,COLOR_UP_TARGET);
+        SupportColorLevel supportColorLevel_a = new SupportColorLevel(0, mXYRenderer.getTargetValue(), COLOR_LOW_TARGET);
+        SupportColorLevel supportColorLevel_b = new SupportColorLevel(mXYRenderer.getTargetValue(), mXYRenderer.getTargetValue() * 10, COLOR_UP_TARGET);
 
         // 若有多个颜色等级可以使用这个用法
 //        SupportColorLevel supportColorLevel_a = new SupportColorLevel(0,10,COLOR_LOW_TARGET);
@@ -62,24 +62,26 @@ public class SupportBarUtils extends BaseSupportUtils{
 
         String[] hours = new String[8];
         double[] allDataSets = new double[]{
-                5,8,10,11,13,15,10,7
+                5, 8, 10, 11, 13, 15, 10, 7
         };
         XYSeries sysSeries = new XYSeries("");
         for (int i = 0; i < allDataSets.length; i++) {
             sysSeries.add(i, allDataSets[i]);
             mXYRenderer.addXTextLabel(i, hours[i]);
         }
+        mXYRenderer.addSupportRenderer(barSeriesRender);
+
         mXYMultipleSeriesDataSet.addSeries(sysSeries);
-        View chartView =  ChartFactory.getSupportBarChartView(mContext, mXYMultipleSeriesDataSet,
-                mXYRenderer, barSeriesRender, SupportBarChart.Type.STACKED);
+        View chartView = ChartFactory.getSupportBarChartView(mContext, mXYMultipleSeriesDataSet,
+                mXYRenderer, SupportBarChart.Type.STACKED);
         chartView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GraphicalView graphicalView = (GraphicalView) v;
-                graphicalView.handPointClickEvent("SupportBar");
+                graphicalView.handPointClickEvent(barSeriesRender,"SupportBar");
             }
         });
-        return  chartView;
+        return chartView;
     }
 
     @Override

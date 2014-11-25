@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.cvte.chart.ui.ColorLevelLineActivity;
 import com.cvte.chart.ui.SupportBarChartActivity;
 import com.cvte.chart.ui.SupportColorTapeLineActivity;
 import com.cvte.chart.ui.SupportCubicLineActivity;
@@ -18,10 +19,16 @@ public class MyActivity extends Activity {
     private final static int TYPE_CUBIC_LINE = 0;
     private final static int TYPE_NORMAL_LINE = 1;
     private final static int TYPE_NORMAL_BAR = 2;
-    private final static int TYPE_SUPPROT_COLOR_TAPE = 3;
+    private final static int TYPE_SUPPORT_COLOR_TAPE = 3;
+    private final static int TYPE_SUPPORT_COLOR_LEVEL_CHART = 4;
 
     private ListView mListViewChartDemo;
-    private String[] mStringArrayChartTypes = new String[]{"扩展的曲线图", "新样式的图表", "扩展的柱状图","支持颜色带的图表"};
+    private String[] mStringArrayChartTypes = new String[]{
+            "扩展的曲线图",
+            "新样式的图表",
+            "扩展的柱状图",
+            "支持颜色带的图表",
+            "任意图表支持颜色分级"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +56,13 @@ public class MyActivity extends Activity {
                         startActivity(intent);
                     }
                     break;
-                    case TYPE_SUPPROT_COLOR_TAPE: {
+                    case TYPE_SUPPORT_COLOR_TAPE: {
                         Intent intent = new Intent(MyActivity.this, SupportColorTapeLineActivity.class);
+                        startActivity(intent);
+                    }
+                    break;
+                    case TYPE_SUPPORT_COLOR_LEVEL_CHART: {
+                        Intent intent = new Intent(MyActivity.this, ColorLevelLineActivity.class);
                         startActivity(intent);
                     }
                     break;

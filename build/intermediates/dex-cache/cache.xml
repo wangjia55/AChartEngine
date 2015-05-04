@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="F:\workspace\AChartEngine\app\build\intermediates\exploded-aar\AChartEngine.libraries\AChartSDK\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="46f6258d232489d6fb28240ca98cfd8626cd976a">
+        <dex dex="F:\workspace\AChartEngine\app\build\intermediates\pre-dexed\debug\classes-69133b04d1739db77cf6c9509eeb614b585a76b7.jar" />
+    </item>
+
+</items>

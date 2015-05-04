@@ -43,6 +43,7 @@ import org.achartengine.renderer.XYMultipleSeriesRenderer;
  * Utility methods for creating chart views or intents.
  */
 public class ChartFactory {
+
     /**
      * The key for the chart data.
      */

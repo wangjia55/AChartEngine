@@ -3,7 +3,7 @@
 
 ##功能说明&效果图
   AchartEngine本身就是一个非常强大的图表引擎,原生支持的图表样式有10多种，官方网站
-  [achartengine]（http://www.achartengine.org/content/demo.html "AChartEngine"），
+  [ "AChartEngine"](http://www.achartengine.org/content/demo.html），
   但是最大的缺点是图表交互性差，而我们这里就针对这点，改善原有的交互，并且提供更为丰富的功能。我们在常用的几种图表上进行了扩展，使用也十分方便。
   
 ####1.常用图表（带点击效果和目标指示效果）
@@ -28,7 +28,8 @@
     具体代码可以参考Demo工程， 其中Libraries中的AChartSDK是在原生Achartengine的基础上进行的扩展。
 
 ####感谢
-  thanks to   [achartengine]（http://www.achartengine.org/content/demo.html "AChartEngine"）
+  thanks to 
+  [ "AChartEngine"](http://www.achartengine.org/content/demo.html），
 
 ###Author
 Wangjia55 (http://blog.csdn.net/wangjia55)

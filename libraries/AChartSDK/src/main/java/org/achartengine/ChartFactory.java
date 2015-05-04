@@ -38,12 +38,12 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.DefaultRenderer;
 import org.achartengine.renderer.DialRenderer;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
-import org.achartengine.renderer.support.SupportSeriesRender;
 
 /**
  * Utility methods for creating chart views or intents.
  */
 public class ChartFactory {
+
     /**
      * The key for the chart data.
      */

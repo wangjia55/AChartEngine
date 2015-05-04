@@ -1,4 +1,10 @@
-apply plugin: 'com.android.application'
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+repositories {
+    jcenter()
+}
 
 buildscript {
     repositories {
@@ -6,16 +12,15 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.2'
-
     }
 }
+
 
 android {
     compileSdkVersion 21
     buildToolsVersion '21.1.2'
 
     defaultConfig {
-        applicationId "com.cvte.chart.demo"
         minSdkVersion 14
         targetSdkVersion 19
         versionCode 1
@@ -42,5 +47,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':libraries:AChartSDK')
 }
+
+
+
+
+
